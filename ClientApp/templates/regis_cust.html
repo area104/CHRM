@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+<title> ฟอร์มลงทะเบียน </title>
+
+{% endblock title %}
+
+{% block center %}
+
+<div class="container">
+	<div class="row">
+		
+		<div class="col-sm-6">
+			<h3>ลงทะเบียนลูกค้า </h3>
+			<p>เก็บรายละเอียด ลูกค้าให้ครบตามช่องว่าง เพื่อเป็นการประมวลผลวิะเคราะห์ต่อไป</p>
+		</div>
+
+		<div class="col-sm-6">
+			<h3>สถานะความสำเร็จ</h3>
+			<span class="badge badge-success">Success ( ขายได้ )</span>
+			<span class="badge badge-warning">Warning ( รอนัดโทรกลับ )</span>
+			<span class="badge badge-danger">Danger ( ขายไม่ได้ )</span>
+		</div>
+	</div>
+
+
+
+
+</div>
+	<hr><div class="container">
+		
+		<form method="POST" >
+		
+			{% csrf_token %}
+
+			<div class="row">
+		
+				<div class="col-sm-12">	
+						<label for="tel"><h4>เบอร์โทรลูกค้า :</h4></label>
+						<input type="text" class="form-control" id="tel" name="tel"><br>
+				</div>
+			
+			</div>
+
+		
+			<div class="row">
+				<div class="col-sm-3">
+				<p>ความสนใจ</p>		
+		
+					<div class="form-check">
+						<label class="form-check-label" for="slot">
+						<input type="checkbox" class="form-check-input" id="slot" name="slot" value="slot">สล็อต
+						</label>			 
+					</div>
+		
+					<div class="form-check">
+						<label class="form-check-label" for="bacara">
+						<input type="checkbox" class="form-check-input" id="check2" name="bacara" value="bacara" >บาคาร่า
+						</label>
+					</div>
+		
+					<div class="form-check">
+						<label class="form-check-label" for="huay">
+						<input type="checkbox" class="form-check-input" id="check3" name="huay" value="huay" >หวย
+						</label>
+					</div>
+		
+					<div class="form-check">
+						<label class="form-check-label" for="muay">
+						<input type="checkbox" class="form-check-input" id="muay" name="muay" value="muay" >มวย
+						</label>
+					</div>
+		
+					<div class="form-check">
+						<label class="form-check-label" for="ball">
+						<input type="checkbox" class="form-check-input" id="ball" name="ball" value="ball" >บอล
+						</label>
+					</div>
+		
+					<div class="form-check">
+						<label class="form-check-label" for="game">
+						<input type="checkbox" class="form-check-input" id="game" name="game" value="game" >เกมส์
+						</label>
+					</div>
+				</div>
+		
+		
+				<div class="col-sm-3">
+		
+				<p>เพศ</p>
+					<div class="form-check">
+						<label class="form-check-label">
+							<input type="radio" class="form-check-input" name="sex" value="M">ชาย
+						</label>
+					</div>
+					<div class="form-check">
+						<label class="form-check-label">
+							<input type="radio" class="form-check-input" name="sex" value="W" >หญิง
+						</label>
+					</div>
+		
+		
+					<br><p>ช่วงอายุ</p>
+					<div class="form-check">
+						<label class="form-check-label">
+							<input type="radio" class="form-check-input" name="age" value="18">น้อยกว่าเกิน 18 ปี
+						</label>
+					</div>
+					<div class="form-check">
+						<label class="form-check-label">
+							<input type="radio" class="form-check-input" name="age" value="39" >18-39
+						</label>
+					</div>
+					<div class="form-check">
+						<label class="form-check-label">
+							<input type="radio" class="form-check-input" name="age" value="59" >40-59
+						</label>
+					</div>
+					<div class="form-check">
+						<label class="form-check-label">
+							<input type="radio" class="form-check-input" name="age" value="60" >มากกว่า 60 ปี
+						</label>
+					</div>
+				</div>
+		
+		
+				<div class="col-sm-3">
+					<p>ประสบการณ์ลูกค้าหรือเปล่า</p>
+					<div class="form-check">
+						<label class="form-check-label">
+							<input type="radio" class="form-check-input" name="exp" value="yes" >เคย
+						</label>
+					</div>
+					<div class="form-check">
+						<label class="form-check-label">
+							<input type="radio" class="form-check-input" name="exp" value="no" >ไม่เคย
+						</label>
+					</div>
+					<br><p>ต้องการให้ส่ง sms หรือเปล่า </p>
+					<div class="form-check">
+						<label class="form-check-label">
+							<input type="radio" class="form-check-input" name="sms" value="no">สนใจ
+						</label>
+					</div>
+					<div class="form-check">
+						<label class="form-check-label">
+							<input type="radio" class="form-check-input" name="sms" value="no" >ไม่สนใจ
+						</label>
+					</div>
+
+				</div>
+				
+
+				
+		
+		
+		
+		
+				<div class="col-sm-3">
+						<div class="form-group">
+								<label for="name">ลงเวลานัดหมาย :</label>
+								<input type="text" class="form-control" id="name" name="name"><br>
+								
+								<label for="name">Line :</label>
+								<input type="text" class="form-control" id="name" name="name"><br>
+
+
+								<label for="sms">SMS :</label>
+								<input type="text" class="form-control" id="sms" name="sms"></input>
+
+
+						</div>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-success ">บันทึกข้อมูล</button>
+
+			<button type="submit" class="btn btn-danger ">ยกเลิก</button>			
+		</form>
+		</div>
+{% endblock center%}
+
+
+{% block right1 %}
+<h3 class="text-center">รายการโทรทั้งหมด</h3><hr>
+
+<h5 class="text-center">{{ user }}</h5>
+
+<table class="table table-striped table-hover">
+	<thead class="table table-dark table-hover">
+	  <tr >
+		<th scope="col">หมายเลข</th>
+		<th>สถานะ</th>
+
+	  </tr>
+	</thead>
+	<tbody class="table table-hover" >
+		{% for x in show %}
+	  <tr >        
+		<td ><a href="{url 'edit_cust-page '%}">{{ x.tel }} </a> </td>
+		<td><span class="badge badge-success">Success</span></td>
+	  </tr>
+	  {% endfor %}
+	</tbody>
+  </table>
+
+{% endblock right1 %}

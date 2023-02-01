@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+<title> Show User </title>
+
+{% endblock title %}
+{% block center %}
+<div class="table-responsive">
+<table class="table">
+    <thead class="table table-dark table-hover">
+      <tr >
+        <th scope="col">ID</th>
+        <th>ชื่อ</th>
+        <th>Login</th>
+        <th>เข้าใช้งานล่าสุด</th>
+        <th>edit</th>
+        <th>delete</th>
+
+      </tr>
+    </thead>
+    <tbody class="table table-dark table-hover">
+      {% for user in users %}
+      <tr >        
+        <td>{{ user.id }}</td>
+        <td>{{ user.first_name }}</td>
+        <td>{{ user.email }} </td>
+        <td>{{ user.last_login }}</td>
+        <td><a href="#"><button type="button" class="btn btn-warning">แก้ใข</button></a></td>
+        <td><a href="#"><button type="button" class="btn btn-danger" onclick="return confirm('คุณต้องการลบ {{ person.name }} หรือไม่')">ลบ</button></a></td>
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+{% endblock center %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+<title> Show User </title>
+
+{% endblock title %}
+{% block center %}
+<div class="table-responsive">
+<table  class="table">
+    <thead class="table table-dark table-hover" >
+      <tr>
+        <th>เบอร์</th>
+        <th>สล็อต</th>
+        <th>เกม</th>
+        <th>หวย</th>
+        <th>มวย</th>
+        <th>บอล</th>
+        <th>บาคาร่า</th>
+        <th>sms</th>
+        <th>เพศ</th>
+        <th>วันที่</th>
+        <th>เวลานัด</th>
+        <th>แก้ใข</th>
+
+
+      </tr>
+    </thead>
+    <tbody class="table table-dark table-hover">
+      {% for user in users %}
+      <tr >        
+        <td>{{ user.tel }}</td>
+        <td>{{ user.slot }}</td>
+        <td>{{ user.game }} </td>
+        <td>{{ user.huay }}</td>
+        <td>{{ user.muay }}</td>
+        <td>{{ user.ball }}</td>
+        <td>{{ user.bacara }}</td>
+        <td>{{ user.sms }}</td>
+        <td>{{ user.sex }}</td>
+        <td>{{ user.date }}</td>
+        <td>{{ user.meet }}</td>
+        <td><a href="#"><button type="button" class="btn btn-warning">แก้ใข</button></a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+{% endblock center %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

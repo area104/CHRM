@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+<title> ฟอร์มลงทะเบียน </title>
+
+{% endblock title %}
+
+{% block center %}
+
+<h3>ลงทะเบียนลูกค้า </h3>
+    <p>เก็บรายละเอียด ลูกค้าให้ครบตามช่องว่าง เพื่อเป็นการประมวลผลวิะเคราะห์ต่อไป</p>
+
+    # ส่งข้อมูลด้วย POST และ Action = form ไปที่views
+    <form method="POST" action = ''>
+        {% csrf_token %} 
+
+        <div class="form-group mb-3 mt-3">
+          <label for="name" class="form-label">ชื่อ:</label>
+          <input type="text" class="form-control" id="name" placeholder="ชื่อผู้ใช้" name="name">
+        </div>
+        <div class="form-group mb-3">
+          <label for="age" class="form-label">อายุ:</label>
+          <input type="number" class="form-control" id="age" placeholder="อายุ" name="age">
+        </div>
+        <input type="submit" value="บันทึกข้อมูล" class="btn btn-primary btn-block">
+    </form   
+
+
+{% endblock center %}

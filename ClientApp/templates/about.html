@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+<title> หน้ากรอกข้อมูล </title>
+
+{% endblock title %}
+
+
+{% block Left1 %}
+
+            <h1 > สวัสดีครับนี้คือ หน้ากรอกข้อมูล </h1>
+            <marquee direction="left"> <p class="text-success">{{ lname | upper }} ต่ออายุสมาชิกแล้ว {{name.age | wordcount }} ครั้ง</p>
+                {{name.age}} 
+            </marquee>   
+                {% if age >= 30 and age <= 59 %}
+
+                <h3>อายุของคุณคือ {{ age }} ปี</h3>
+                <p>อยู่ในวัยทำงาน</p>
+
+            {% elif age >= 60 %}
+
+                <h3>อายุของคุณคือ {{ age }} ปี</h3>
+                <p>คุณอยู่ในวัยเกษียณ</p>
+
+            {% else %}
+
+                <h3>อายุของคุณน้อย {{ age }} ปี</h3>
+                <p>คุณ{{name | upper}}อยู่ในวัยรุ่น</p>          
+
+            {% endif %}
+            {{ person.name }}
+{% endblock Left1 %}
+
+
+{% block center %}
+
+{{ user }}
+
+<p> blockcenter 1 </p>
+
+<div class="table-responsive">
+    <h2>ดึงข้อมูลทั้งหมดด้วย oject.all()</h2>
+    <p>Contextual classes can be used to color the table, table rows or table cells. The classes that can be used are: .table-primary, .table-success, .table-info, .table-warning, .table-danger, .table-active, .table-secondary, .table-light and .table-dark:</p>
+
+    {% if messages %}
+
+
+      {% for massage in messages %}
+
+        
+        <div class="alert alert-success">
+          <strong>{{ massage }}!</strong> ข้อมูลถูกจัดการบันทึกเรียบร้อยแล้ว
+        </div>
+      {% endfor %}
+
+    {% endif %}
+
+
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr class="table-dark text-white" >
+          <th scope="col">ID</th>
+          <th>เบอร์โทรศัพท์</th>
+          <th>name</th>
+          <th>ช่วง-อายุ</th>
+          <th>เพศ</th>
+          <th>วันลงชื่อเข้าระบบ</th>
+          <th>สถานะ</th>
+          <th>ความสนใจ</th>
+          <th>edit</th>
+          <th>delete</th>
+
+        </tr>
+      </thead>
+      <tbody >
+        {% for person in persons %}
+        <tr >        
+          <td>{{ person.id }}</td>
+          <td>{{ person.tel }}</td>
+          <td>{{ person.name }} </td>
+          <td>{{ person.age }}</td>
+          <td>{{ person.sex }}</td>
+          <td>{{ person.datereg }}</td>
+          <td>{{ person.status }}</td>
+          <td>{{ person.interest}}</td>
+          <td><a href="{% url 'edit-page' person.id %}"><button type="button" class="btn btn-warning">แก้ใข</button></a></td>
+          <td><a href="{% url 'delete-page' person.id %}"><button type="button" class="btn btn-danger" onclick="return confirm('คุณต้องการลบ {{ person.name }} หรือไม่')">ลบ</button></a></td>
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock center %}
+{% block center2 %}
+
+
+
+{% endblock center2 %}
+
+
+
+
+
+
+
+
+
+{% block right1 %}
+
+<h6>ดึงข้อมูลทั้งหมดด้วย oject.filter(age__gt=25) มากกว่า 25 ปี</h6>
+
+
+
+
+
+{% for pd in fperson %}
+
+<p>ชื่อ {{ pd.name }} อายุ {{pd.age}}</p>
+
+{%endfor%}
+
+<p>รวมทั้งสิ้น = {{fperson | wordcount}} คน</p>
+
+
+{% endblock right1 %}
+
+
+
+
+
+

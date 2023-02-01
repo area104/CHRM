@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+<title> Register </title>
+
+{% endblock title %}
+
+{% block center %}
+
+<div class="container">
+    
+    <form method="POST" > <! ***** หากมีการอัพโหลดไฟล์ ตรงนี้ด้วยสำคัญ >
+      
+      {% csrf_token %} <!*****จำเป็นต้องใส่หากต้องการป้อนข้อมูลจากหน้าเว็บเข้าเว็บ>
+  
+      <h1 class="text-center">Register</h1>
+      <p class="text-center" >เพิ่มพนักงานเข้าสู่ระบบ กรุณากรอกรายละเอียดให้ครบถ้วน มีผลต่อการออกรายงาน</p><br>
+
+    <div class="row">
+        <div class="col-sm">
+            
+            <div class="form-group">
+                <label for="first_name">ชื่อผู้ใช้ :</label>
+                <input type="text" class="form-control" id="first_name" name="first_name">
+            </div>            
+
+  
+            <div class="form-group">
+                <label for="email">email Login (ใช้สำหรับLogin ใช้งานระบบ) :</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div>
+    
+            <div class="form-group">
+                <label for="password">รหัสผ่าน</label>
+                <input type="password" class="form-control" id="password" password="name">
+            </div>
+
+            <div class="form-group">
+                <label for="repassword">รหัสผ่าน (ตรวจสอบความถูกต้อง)</label>
+                <input type="password" class="form-control" id="repassword" password="repassword">
+            </div>
+
+        </div><!----col-->
+    </div><!---- rows -->
+
+    <br><button type="submit" class=" btn btn-success">ลงทะเบียน</button>               
+    </form>
+</div>
+
+
+{% endblock center %}
