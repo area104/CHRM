@@ -56,12 +56,12 @@ def form (request):
         return render(request,"form.html")
 
     
-def edit (request,person_id):
+def edit (request,id):
 
     if request.method == "POST":
 
-        #ดึงข้อมูล person_id มา model
-        person = Person.objects.get(id=person_id)
+        #ดึงข้อมูล id มา model
+        person = Person.objects.get(id=id)
 
         name = request.POST["name"]#ดึงข้อมูล name มาจาก POST
         age = request.POST["age"]
@@ -74,14 +74,14 @@ def edit (request,person_id):
 
 
     else:
-        person_data = Person.objects.get(id=person_id) # เข้าไปที่ person getเอาข้อมูล มาด้วยid = person_id ที่ส่งมา เก็บไว้ในตัวแปล person
+        person_data = Person.objects.get(id=id) # เข้าไปที่ person getเอาข้อมูล มาด้วยid = id ที่ส่งมา เก็บไว้ในตัวแปล person
 
         return render (request,"edit.html",{"person":person_data}) #ส่งข้อมูลไปที่ edit.html เรียกด้วย person เก็บข้อมูล person_data เอาไว้
 
 
-def delete(request,person_id):
+def delete(request,id):
     
-    person = Person.objects.get(id=person_id)
+    person = Person.objects.get(id=id)
     person.delete()
 
     messages.success(request,"ลบข้อมูล")
@@ -166,26 +166,20 @@ def regis_cust (request):
         show = Stat_user.objects.all()
         return render(request,"regis_cust.html",{"show":show})
 
-def edit_cust(request,tel):
-    if request.method ==" POST":
+def edit_cust (request,tel):
 
+    if request.method == "POST":
 
-        data = request.POST.copy()
+        #ดึงข้อมูล person_id มา model
+        tel = Stat_user.objects.get(tel=tel)
 
-        tel = data.get("tel")
-        slot = data.get("slot")
-        game = data.get("game")
-        huay = data.get("huay")
-        muay = data.get("muay")
-        ball = data.get("ball")
-        bacara = data.get("bacara")
-        sms = data.get("sms")
-        sex = data.get("sex")
-        age = data.get("age")
+        
 
+        messages.success(request,"อัพเดด")
+        return redirect('regis_cust-page') 
 
-        return redirect("/")
 
     else:
-        user = Stat_user.objects.all()
-        return render(request,'edit_cust.html',{'user':user})   
+        tel = Stat_user.objects.get(tel=tel) # เข้าไปที่ person getเอาข้อมูล มาด้วยid = person_id ที่ส่งมา เก็บไว้ในตัวแปล person
+
+        return render (request,"edit_cust.html",{"tel":tel}) #ส่งข้อมูลไปที่ edit.html เรียกด้วย person เก็บข้อมูล person_data เอาไว้ 

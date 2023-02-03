@@ -20,22 +20,22 @@
 
         <div class="form-group mb-3 mt-3">
           <label for="name" class="form-label">รหัสประจำตัว:</label>
-          <input type="text" class="form-control" id="name" placeholder="ชื่อผู้ใช้" name="id" value="{{person.id}}">
+          <input type="text" class="form-control" id="name" placeholder="เช่น: 1001" name="id" value="{{person.id}}">
         </div>
 
         <div class="form-group mb-3 mt-3">
           <label for="name" class="form-label">ชื่อ:</label>
-          <input type="text" class="form-control" id="name" placeholder="ชื่อผู้ใช้" name="name" value="{{person.name}}">
+          <input type="text" class="form-control" id="name" placeholder="เช่น: นายทองดี" name="name" value="{{person.name}}">
         </div>
 
         <div class="form-group mb-3">
           <label for="age" class="form-label">อายุ:</label>
-          <input type="number" class="form-control" id="age" placeholder="อายุ" name="age" value="{{person.age}}">
+          <input type="number" class="form-control" id="age" placeholder="อายุ : 25 ปี" name="age" value="{{person.age}}">
         </div>
         
         <input type="submit" value="อัพเดดข้อมูล" class="btn btn-success btn-block">
         
-        <a href="{%url 'about-page'%}"><button type="button" class="btn btn-secondary">ยกเลิก</button></a>
+        <br><a href="{%url 'about-page'%}"><button type="button" class="btn btn-secondary btn-block">ยกเลิก</button></a>
     </form
 {% endblock center%}
 {% block center1 %}
